@@ -71,14 +71,14 @@ user_image_ID varchar(50),
 user_ID varchar(50),
 image int,
 primary key (user_image_ID),
-foreign key (user_ID) references user(user_ID));
+foreign key (user_ID) references user(user_ID) on update cascade);
 
 drop table birth;
 create table birth (
     user_ID varchar(50),
     age int,
     primary key (user_ID),
-    foreign key (user_ID) references user(user_ID)
+    foreign key (user_ID) references user(user_ID) on update cascade
 );
 
 INSERT INTO birth (user_ID, age)
@@ -134,7 +134,7 @@ post_date datetime,
 body_text varchar(500),
 author_ID varchar(50),
 primary key (post_ID),
-foreign key (author_ID) references user(user_ID)
+foreign key (author_ID) references user(user_ID)on update cascade
 );
 desc post;
 
@@ -191,8 +191,8 @@ user_ID varchar(50),
 post_ID varchar(50),
 
 primary key(user_ID, post_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (post_ID) references post(post_ID)
+foreign key (user_ID) references user(user_ID)on update cascade,
+foreign key (post_ID) references post(post_ID)on update cascade
 );
 desc post_likes;
 select*from user;
@@ -241,8 +241,8 @@ create table follower(
 user_ID varchar(50),
 follower_ID varchar(50),
 primary key (user_ID, follower_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (follower_ID) references user(user_ID)
+foreign key (user_ID) references user(user_ID)on update cascade,
+foreign key (follower_ID) references user(user_ID)on update cascade
 );
 desc follower;
 
@@ -349,8 +349,8 @@ create table following(
 user_ID varchar(50),
 following_ID varchar(50),
 primary key (user_ID, following_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (following_ID) references user(user_ID)
+foreign key (user_ID) references user(user_ID)on update cascade,
+foreign key (following_ID) references user(user_ID)on update cascade
 );
 desc following;
 
@@ -490,8 +490,8 @@ create table belong(
 user_ID varchar(50),
 org_ID varchar(50),
 primary key(user_ID, org_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (org_ID) references organization(org_ID)
+foreign key (user_ID) references user(user_ID)on update cascade,
+foreign key (org_ID) references organization(org_ID)on update cascade
 );
 desc belong;
 
@@ -615,8 +615,8 @@ comment_date DATETIME,
 post_ID varchar(50),
 
 primary key (comment_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (post_ID) references post(post_ID)
+foreign key (user_ID) references user(user_ID)on update cascade,
+foreign key (post_ID) references post(post_ID)on update cascade
 );
 desc comment;
 
@@ -665,8 +665,8 @@ user_ID varchar(50),
 comment_ID varchar(50),
 
 primary key(user_ID, comment_ID),
-foreign key(comment_ID) references comment(comment_ID),
-foreign key(user_ID) references user(user_ID)
+foreign key(comment_ID) references comment(comment_ID)on update cascade,
+foreign key(user_ID) references user(user_ID)on update cascade
 );
 desc comment_likes;
 
@@ -711,9 +711,9 @@ comment_ID varchar(50),
 user_ID varchar(50),
 tagged_ID varchar(50),
 primary key (user_ID, tagged_ID,comment_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (tagged_ID) references user(user_ID),
-foreign key (comment_ID) references comment(comment_ID)
+foreign key (user_ID) references user(user_ID)on update cascade,
+foreign key (tagged_ID) references user(user_ID)on update cascade,
+foreign key (comment_ID) references comment(comment_ID)on update cascade
 );
 
 desc comment_tag;
