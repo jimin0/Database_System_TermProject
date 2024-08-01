@@ -1,24 +1,6 @@
-drop database facebook;
-create database facebook;
-use facebook;
-
-create table user(
-user_ID varchar(50),
-password varchar(50),
-user_name varchar(50),
-phone_number varchar(20),
-birthday date,
-address varchar(50),
-follower int,
-following int,
-phone_number2 varchar(50),
-primary key(user_ID));
-desc user;
-select*from user;
-insert into user values
-
+-- user 테이블 데이터 삽입
+INSERT INTO user VALUES
 ("testID","abcde","Test", "010-0134-1444","1999-01-30", "Seoul, Gangnam-gu, Yeoksam-dong 123",3,10,null),
-
 ("11111","eeeee","Timmy", "010-0104-1234","1999-01-30", "Seoul, Gangnam-gu, Yeoksam-dong 123",6,2,null),
 ("12222","aaaaa","Jimmy","010-1234-1234", "1996-02-28", "Incheon, Namdong-gu, Ganseok-dong 456",4,3,null),
 ("13333","abbbb","sunny","010-0293-3827", "1967-03-11", "Daejeon, Yuseong-gu, Bongmyeong-dong 789",3,4,null),
@@ -29,7 +11,6 @@ insert into user values
 ("88882","abcab","william","010-2345-9854", "2009-08-28","Daegu, Suseong-gu, Manchon-dong 112",5,3,null),
 ("99992","ddddd","willson","010-1235-5673", "1986-09-16","Gangwon-do, Chuncheon-si, Namsan-myeon 345",4,2,null),
 ("10001","eeeee","son","010-3097-1234", "1968-11-13","Jeollabuk-do, Jeonju-si, Deokjin-gu",3,1,null),
-
 ("1111","aaab","Aaron","010-4512-1052","2002-09-07","Gyeonggi-do, Gwacheon-si, Munwon-dong 10",3,2,null),
 ("2222","bbbc","Abigail","010-6622-2620","2002-04-15","Gyeonggi-do, Anyang-si, Dongan-gu",1,3,null),
 ("3333","cccd","Brandon","010-5556-2623","2000-11-07","Gyeonggi-do, Gunpo-si Sanbon-dong 20",1,1,null),
@@ -40,7 +21,6 @@ insert into user values
 ("8888","hhhi","Felix","010-7004-4660","1998-07-06","Busan, Haeundae-gu, Bansong-dong 70",2,2,null),
 ("9999","iiij","Hudson","010-0603-3058","1996-12-30","Daegu, Suseong-gu, Beomeo-dong 80",1,3,null),
 ("1010","jjjk","Heath","010-0894-4700","1997-04-16","Daejeon, Yuseong-gu, Jinjam-dong 90",2,1,null),
-
 ("111","aaazx","aaron","010-6444-7585", "2002-02-14","Seoul, Mapo-gu, Sungsan-dong 37",3,2,null),
 ("222","bbbzx","adam","010-2710-0579", "1970-07-05","Gyeongsangbuk-do, Gumi-si, Jisan-dong 588",4,1,null),
 ("333","ccczx","bryce","010-4809-0732", "2008-09-21","Gwangju, Dong-gu, Duam-dong 323",1,1,null),
@@ -51,7 +31,6 @@ insert into user values
 ("888","hhhzx","henry","010-3026-0177", "2011-01-10","Seoul, Songpa-gu, bubwon-ro 29",2,3,null),
 ("999","iiizx","ishmael","010-5523-6080", "2004-08-09","Gyeonggi, Buchon-si, Bugwang-ro 64",1,2,null),
 ("101","jjjzx","kaden","010-9733-3448", "1992-04-15","Seoul, Seocho-gu, Narutae-ro 9",1,1,null),
-
 ("11","aazx","adela","010-6432-7521", "2001-01-13","Seoul, Mapo-gu, Sugeyo-dong 41",3,2,null),
 ("22","bbzx","ann","010-2640-0509", "1969-06-04","Gyeongsangbuk-do, Gumi-si, Dosng-dong 921",4,1,null),
 ("33","cczx","bianca","010-4149-0732", "2007-08-20","Gwangju, Dong-gu, Shingang-dong 21",1,1,null),
@@ -63,82 +42,52 @@ insert into user values
 ("99","iizx","grace","010-5302-6973", "2003-07-08","Gyeonggi, Buchon-si, Sujung-ro 122",1,2,null),
 ("01","jjzx","helen","010-3233-3401", "1991-03-14","Seoul, Seodaemun-gu, Narutae-ro 7",1,1,null);
 
-drop table user_image;
+-- birth 테이블 데이터 삽입
+INSERT INTO birth (user_ID, age) VALUES
+("testID", 24),
+("11111", 24),
+("12222", 27),
+("13333", 56),
+("14444", 20),
+("55551", 21),
+("66661", 11),
+("77771", 12),
+("88882", 14),
+("99992", 37),
+("10001", 55),
+("1111", 22),
+("2222", 22),
+("3333", 24),
+("4444", 23),
+("5555", 24),
+("6666", 23),
+("7777", 25),
+("8888", 26),
+("9999", 28),
+("1010", 27),
+("111",22),
+("222",53),
+("333",15),
+("444",25),
+("555",42),
+("666",21),
+("777",46),
+("888",12),
+("999",20),
+("101",31),
+("11",21),
+("22",52),
+("33",14),
+("44",24),
+("55",41),
+("66",20),
+("77",45),
+("88",11),
+("99",19),
+("01",30);
 
-## 이미지 미정
-create table user_image(
-user_image_ID varchar(50),
-user_ID varchar(50),
-image int,
-primary key (user_image_ID),
-foreign key (user_ID) references user(user_ID) on update cascade);
-
-drop table birth;
-create table birth (
-    user_ID varchar(50),
-    age int,
-    primary key (user_ID),
-    foreign key (user_ID) references user(user_ID) on update cascade
-);
-
-INSERT INTO birth (user_ID, age)
-VALUES
-    ("testID", 24),
-    
-    ("11111", 24),
-    ("12222", 27),
-    ("13333", 56),
-    ("14444", 20),
-    ("55551", 21),
-    ("66661", 11),
-    ("77771", 12),
-    ("88882", 14),
-    ("99992", 37),
-    ("10001", 55),
-    ("1111", 22),
-    ("2222", 22),
-    ("3333", 24),
-    ("4444", 23),
-    ("5555", 24),
-    ("6666", 23),
-    ("7777", 25),
-    ("8888", 26),
-    ("9999", 28),
-    ("1010", 27),
-    ("111",22),
-    ("222",53),
-    ("333",15),
-    ("444",25),
-    ("555",42),
-    ("666",21),
-    ("777",46),
-    ("888",12),
-    ("999",20),
-    ("101",31),
-    
-    ("11",21),
-    ("22",52),
-    ("33",14),
-    ("44",24),
-    ("55",41),
-    ("66",20),
-    ("77",45),
-    ("88",11),
-    ("99",19),
-    ("01",30);
-
-
-create table post(
-post_ID varchar(50),
-post_date datetime,
-body_text varchar(500),
-author_ID varchar(50),
-primary key (post_ID),
-foreign key (author_ID) references user(user_ID)on update cascade
-);
-desc post;
-
-insert into post values
+-- post 테이블 데이터 삽입
+INSERT INTO post VALUES
 ("7411", NOW()-INTERVAL 1 DAY, "I came to see a movie today. It was more fun than I thought.","11111"),
 ("7412", NOW()-INTERVAL 1 DAY, "I want to go to an amusement park. Who wants to go with me?","12222"),
 ("7413", NOW()-INTERVAL 1 DAY, "JI want to eat malatang. I will eat it the spiciest!!","13333"),
@@ -148,10 +97,9 @@ insert into post values
 ("7417", NOW()-INTERVAL 1 DAY, "Finally, the semester ends next week!!!!!!","88882"),
 ("7418", NOW()-INTERVAL 1 DAY, "It's nice because it rains today. I love rainy days~~!!","99992"),
 ("7419", NOW()-INTERVAL 1 DAY, "I can't believe I have a cold... Everyone, be careful not to catch a cold!","10001"),
-("7410", NOW()-INTERVAL 1 DAY, "Are you all studying hard for the test? Let’s all get good grades!!","1111"),
-("7519", NOW()-INTERVAL 1 DAY, "Jimin Kim, don’t go to America","testID"),
+("7410", NOW()-INTERVAL 1 DAY, "Are you all studying hard for the test? Let's all get good grades!!","1111"),
+("7519", NOW()-INTERVAL 1 DAY, "Jimin Kim, don't go to America","testID"),
 ("7511", NOW()-INTERVAL 1 DAY, "hungry!!! 7 hour fast!!!!","testID"),
-
 ("99999", NOW()-INTERVAL 1 DAY, "Just had the most amazing meal! Grateful for good food and even better company.","11111"),
 ("99998", NOW()-INTERVAL 10 DAY, "Rainy days are my favorite. ☔ Cozy blankets, hot coffee, and a good book make the perfect combo. What's your rainy day ritual","11111"),
 ("99997", NOW()-INTERVAL 11 DAY, "Excited to start a new project! Stay tuned for updates.","13333"),
@@ -162,7 +110,6 @@ insert into post values
 ("99992", NOW()-INTERVAL 4 DAY, "Chasing dreams and setting goals. Every step forward is progress. What's one thing you're working towards right now?","77771"),
 ("99991", NOW()-INTERVAL 11 DAY, "Random acts of kindness can brighten someone's day.️ Whether it's a smile or a small gesture, spread positivity wherever you go!","10001"),
 ("99990", NOW()-INTERVAL 111 DAY, "Finding joy in the little things. A good cup of tea, a warm hug, or a beautiful sunset—what brings a smile to your face?","10001"),
-
 ("999", NOW()-INTERVAL 5 DAY, "No matter how much I think about it, love for cats has to be one-sided.","111"),
 ("998", NOW()-INTERVAL 13 DAY, "It snowed. It's my first snow of the year.","111"),
 ("997", NOW()-INTERVAL 18 DAY, "I went to the hospital for a cold, but I got a flu and a COVID shot.","222"),
@@ -173,7 +120,6 @@ insert into post values
 ("992", NOW()-INTERVAL 17 DAY, "The weather is cool, so I came to the Han River to play. Chicken is really good.","777"),
 ("991", NOW()-INTERVAL 101 DAY, "I bought some clothes, but I'm really upset that it came with a hole in it!","777"),
 ("990", NOW()-INTERVAL 62 DAY, "Please recommend hip hop songs.","999"),
-
 ("99", NOW()-INTERVAL 14 DAY, "No matter how much I think about it, love for cats has to be one-sided.","11"),
 ("98", NOW()-INTERVAL 122 DAY, "It snowed. It's my first snow of the year.","11"),
 ("97", NOW()-INTERVAL 19 DAY, "I went to the hospital for a cold, but I got a flu and a COVID shot.","22"),
@@ -185,21 +131,10 @@ insert into post values
 ("91", NOW()-INTERVAL 100 DAY, "I bought some clothes, but I'm really upset that it came with a hole in it!","77"),
 ("90", NOW()-INTERVAL 61 DAY, "Please recommend hip hop songs.","99");
 
-drop table post_likes;
-create table post_likes(
-user_ID varchar(50),
-post_ID varchar(50),
-
-primary key(user_ID, post_ID),
-foreign key (user_ID) references user(user_ID)on update cascade,
-foreign key (post_ID) references post(post_ID)on update cascade
-);
-desc post_likes;
-select*from user;
-insert into post_likes values
+-- post_likes 테이블 데이터 삽입
+INSERT INTO post_likes VALUES
 ("1111","7419"),
 ("11111","7410"),
-
 ("11111","99999"),
 ("12222","99999"),
 ("13333","99999"),
@@ -214,7 +149,6 @@ insert into post_likes values
 ("13333","99993"),
 ("11111","99992"),
 ("12222","99992"),
-
 ("777","993"),
 ("111","996"),
 ("111","997"),
@@ -225,7 +159,6 @@ insert into post_likes values
 ("666","991"),
 ("888","990"),
 ("333","998"),
-
 ("77","93"),
 ("11","96"),
 ("11","97"),
@@ -237,16 +170,8 @@ insert into post_likes values
 ("88","90"),
 ("33","98");
 
-create table follower(
-user_ID varchar(50),
-follower_ID varchar(50),
-primary key (user_ID, follower_ID),
-foreign key (user_ID) references user(user_ID)on update cascade,
-foreign key (follower_ID) references user(user_ID)on update cascade
-);
-desc follower;
-
-insert into follower values
+-- follower 테이블 데이터 삽입
+INSERT INTO follower VALUES
 ("11111","testID"),
 ("12222","testID"),
 ("13333","testID"),
@@ -260,7 +185,6 @@ insert into follower values
 ("testID","11111"),
 ("testID","12222"),
 ("testID","13333"),
-
 ("11111","12222"),
 ("11111","13333"),
 ("11111","14444"),
@@ -286,7 +210,6 @@ insert into follower values
 ("99992","14444"),
 ("10001","12222"),
 ("10001","14444"),
-
 ("1111", "2222"),
 ("1111", "3333"),
 ("2222", "1111"),
@@ -302,7 +225,6 @@ insert into follower values
 ("9999", "4444"),
 ("1010", "9999"),
 ("1010", "8888"),
-
 ("111","222"),
 ("111","333"),
 ("111","444"),
@@ -323,7 +245,6 @@ insert into follower values
 ("888","999"),
 ("999","888"),
 ("101","888"),
-
 ("11","22"),
 ("11","33"),
 ("11","44"),
@@ -345,16 +266,8 @@ insert into follower values
 ("99","88"),
 ("01","88");
 
-create table following(
-user_ID varchar(50),
-following_ID varchar(50),
-primary key (user_ID, following_ID),
-foreign key (user_ID) references user(user_ID)on update cascade,
-foreign key (following_ID) references user(user_ID)on update cascade
-);
-desc following;
-
-insert into following values
+-- following 테이블 데이터 삽입
+INSERT INTO following VALUES
 ("testID","11111"),
 ("testID","12222"),
 ("testID","13333"),
@@ -368,7 +281,6 @@ insert into following values
 ("11111","testID"),
 ("12222","testID"),
 ("13333","testID"),
-
 ("12222","11111"),
 ("12222","10001"),
 ("13333","11111"),
@@ -391,7 +303,6 @@ insert into following values
 ("99992","77771"),
 ("10001","88882"),
 ("11111","14444"),
-
 ("1111", "2222"),
 ("1111", "3333"),
 ("2222", "1111"),
@@ -407,7 +318,6 @@ insert into following values
 ("9999", "8888"),
 ("9999", "1010"),
 ("1010", "8888"),
-
 ("111","222"),
 ("111","333"),
 ("222","111"),
@@ -428,7 +338,6 @@ insert into following values
 ("999","555"),
 ("999","888"),
 ("101","555"),
-
 ("11","22"),
 ("11","33"),
 ("22","11"),
@@ -450,18 +359,8 @@ insert into following values
 ("99","88"),
 ("01","55");
 
-
-drop table organization;
-
-create table organization(
-org_ID varchar(50),
-org_name varchar(50),
-org_address varchar(50),
-org_number varchar(20),
-primary key (org_ID));
-desc organization;
-
-insert into organization values
+-- organization 테이블 데이터 삽입
+INSERT INTO organization VALUES
 ("45670","ABC Innovations Ltd","123 Main Street, Ste 101, Cityville, ST","555-1234-5678"),
 ("45671","Quantum Solutions Inc.","456 Tech Ave, Floor 5, Technocity, ST","555-2345-6789"),
 ("45672","Apex Dynamics Technologies","567 Future Blvd, Ste 301, Innovation City, ST","555-3456-7890"),
@@ -472,7 +371,6 @@ insert into organization values
 ("45677","Evergreen Crest School","456 Tech Ave, Floor 5, Technocity, ST","121-1212-1212"),
 ("45678","Radiant Star University","101 Visionary Plaza, Tower 3, Futuricity, ST","888-202-222"),
 ("45679","Crestwood High School","234 Quantum St, Lab Wing, Sciencetown, ST","121-1212-4948"),
-
 ("450","GS Global","3780 S Las Vegas Blvd, Floor 5 Las Vegas, NV","888-8352-5008"),
 ("451","Union","390 Congress St, Tower 2, Portland, ME","356-7834-0093"),
 ("452","Shinhan", "150-29 Northern Blvd, Floor 2, Queens, NY","301-602-7700"),
@@ -484,18 +382,8 @@ insert into organization values
 ("458","RYken High School","22600 Camp Calvert Rd, Leonardtown, MD","301-475-2814"),
 ("459","Radiant University","203 Arbury Rd, Lab Academy, Cambridge, UK","122-491-1500");
 
-drop table belong;
-
-create table belong(
-user_ID varchar(50),
-org_ID varchar(50),
-primary key(user_ID, org_ID),
-foreign key (user_ID) references user(user_ID)on update cascade,
-foreign key (org_ID) references organization(org_ID)on update cascade
-);
-desc belong;
-
-insert into belong values
+-- belong 테이블 데이터 삽입
+INSERT INTO belong VALUES
 ("11111","45670"),
 ("12222","45670"),
 ("13333","45670"),
@@ -506,7 +394,6 @@ insert into belong values
 ("88882","45677"),
 ("99992","45674"),
 ("10001","45674"),
-
 ("111","459"),
 ("222","450"),
 ("333","457"),
@@ -517,7 +404,6 @@ insert into belong values
 ("888","458"),
 ("999","455"),
 ("101","451"),
-
 ("11","459"),
 ("22","450"),
 ("33","457"),
@@ -529,17 +415,8 @@ insert into belong values
 ("99","455"),
 ("01","451");
 
-drop table groups_;
-
-create table groups_(
-group_ID varchar(50),
-group_name varchar(20),
-group_content varchar(500),
-primary key (group_id)
-);
-desc groups_;
-
-insert into groups_ values
+-- groups_ 테이블 데이터 삽입
+INSERT INTO groups_ VALUES
 ('00000', 'Tech Enthusiasts', 'Discussing the latest trends and innovations in the tech world.'),
 ('11111', 'Fitness Fanatics', 'A community dedicated to health and fitness. Share your workout routines and tips!'),
 ('22222', 'Travel Explorers', 'Discover the world with fellow travelers. Share your travel stories and recommendations.'),
@@ -550,7 +427,6 @@ insert into groups_ values
 ('77777', 'Gaming Zone', 'Connect with gamers worldwide. Discuss games, strategies, and find gaming buddies.'),
 ('88888', 'Pet Lovers United', 'For all the pet parents out there! Share adorable pictures and discuss pet care tips.'),
 ('99999', 'Music Melodies', 'A community for music lovers. Discuss your favorite genres, artists, and latest releases.'),
-
 ('550', 'Drama Review', 'A collection of drama highlights.'),
 ('551', 'Movie Review', 'Film plot reviews and ratings.'),
 ('552', 'Football Community', 'EPL Review.'),
@@ -562,16 +438,8 @@ insert into groups_ values
 ('558', 'Coding Community', 'Where to post coding tips or videos.'),
 ('559', 'Singer Fan Community', 'A place to share videos or posts of your favorite singers.');
 
--- 오류 해결
-create table follow_group( 
-user_ID varchar(50),
-group_ID varchar(50),
-primary key (user_ID, group_ID),
-foreign key (user_ID) references user(user_ID),
-foreign key (group_ID) references groups_(group_ID));
-desc follow_group;
-
-insert into follow_group values
+-- follow_group 테이블 데이터 삽입
+INSERT INTO follow_group VALUES
 ("12222",'00000'),
 ("77771",'00000'),
 ("88882",'00000'),
@@ -582,7 +450,6 @@ insert into follow_group values
 ("88882",'44444'),
 ("77771",'66666'),
 ("12222",'99999'),
-
 ("111",'550'),
 ("222",'550'),
 ("444",'551'),
@@ -593,7 +460,6 @@ insert into follow_group values
 ("888",'557'),
 ("999",'556'),
 ("101",'559'),
-
 ("11",'550'),
 ("22",'550'),
 ("44",'551'),
@@ -605,26 +471,10 @@ insert into follow_group values
 ("99",'556'),
 ("01",'559');
 
-drop table comment;
-
-create table comment(
-comment_ID varchar(50),
-user_ID varchar(50),
-comment_content varchar(250),
-comment_date DATETIME,
-post_ID varchar(50),
-
-primary key (comment_ID),
-foreign key (user_ID) references user(user_ID)on update cascade,
-foreign key (post_ID) references post(post_ID)on update cascade
-);
-desc comment;
-
-insert into comment values
-
+-- comment 테이블 데이터 삽입
+INSERT INTO comment VALUES
 ("1234", "12222", 'Great post! I completely agree with your perspective.', NOW(), "7519"),
 ("5678", "13333", 'This is fascinating. Thanks for sharing!', NOW() - INTERVAL 1 DAY, "7511"),
-
 ("10000", "88882", 'Great post! I completely agree with your perspective.', NOW(), "99995"),
 ("10001", "77771", 'This is fascinating. Thanks for sharing!', NOW() - INTERVAL 1 DAY, "99995"),
 ("10002", "13333", 'I have a question about the topic. Can you elaborate more?', NOW(), "99995"),
@@ -635,7 +485,6 @@ insert into comment values
 ("10007", "88882", 'Any recommendations for further reading on this topic?', NOW() - INTERVAL 2 DAY, "99992"),
 ("10008", "14444", 'This made my day! Thank you for spreading positivity.', NOW() - INTERVAL 2 DAY, "99992"),
 ("10009", "88882", 'I\'m curious about your process. Can you share more details?', NOW() - INTERVAL 1 DAY, "99999"),
-
 ("100", "111", 'I hope you get better soon.', NOW() - INTERVAL 7 DAY, "997"),
 ("101", "111", 'Lets go with me next time!', NOW() - INTERVAL 4 DAY, "996"),
 ("102", "222", 'Cats are the loveliest thing in the world.', NOW(), "999"),
@@ -646,7 +495,6 @@ insert into comment values
 ("107", "888", 'I love the song trip.', NOW() - INTERVAL 20 DAY, "990"),
 ("108", "444", 'You did a great job. What are you planning to do now?', NOW() - INTERVAL 141 DAY, "996"),
 ("109", "999", 'It\'s a wonderful weather!', NOW() - INTERVAL 100 DAY, "995"),
-
 ("00", "11", 'I hope you get better soon.', NOW() - INTERVAL 7 DAY, "97"),
 ("01", "11", 'Lets go with me next time!', NOW() - INTERVAL 4 DAY, "96"),
 ("02", "22", 'Cats are the loveliest thing in the world.', NOW(), "99"),
@@ -658,19 +506,8 @@ insert into comment values
 ("08", "44", 'You did a great job. What are you planning to do now?', NOW() - INTERVAL 141 DAY, "96"),
 ("09", "99", 'It\'s a wonderful weather!', NOW() - INTERVAL 100 DAY, "95");
 
-drop table comment_likes;
-
-create table comment_likes(
-user_ID varchar(50),
-comment_ID varchar(50),
-
-primary key(user_ID, comment_ID),
-foreign key(comment_ID) references comment(comment_ID)on update cascade,
-foreign key(user_ID) references user(user_ID)on update cascade
-);
-desc comment_likes;
-
-insert into comment_likes values
+-- comment_likes 테이블 데이터 삽입
+INSERT INTO comment_likes VALUES
 ("10001","10000"),
 ("99992","10000"),
 ("88882","10000"),
@@ -681,7 +518,6 @@ insert into comment_likes values
 ("99992","10002"),
 ("10001","10003"),
 ("10001","10004"),
-
 ("111","102"),
 ("111","103"),
 ("222","100"),
@@ -692,7 +528,6 @@ insert into comment_likes values
 ("777","105"),
 ("777","106"),
 ("999","107"),
-
 ("11","02"),
 ("11","03"),
 ("22","00"),
@@ -704,21 +539,8 @@ insert into comment_likes values
 ("77","06"),
 ("99","07");
 
-drop table comment_tag;
-
-create table comment_tag(
-comment_ID varchar(50),
-user_ID varchar(50),
-tagged_ID varchar(50),
-primary key (user_ID, tagged_ID,comment_ID),
-foreign key (user_ID) references user(user_ID)on update cascade,
-foreign key (tagged_ID) references user(user_ID)on update cascade,
-foreign key (comment_ID) references comment(comment_ID)on update cascade
-);
-
-desc comment_tag;
-
-insert into comment_tag values
+-- comment_tag 테이블 데이터 삽입
+INSERT INTO comment_tag VALUES
 ("10000", "88882","55551"),
 ("10000", "88882","12222"),
 ("10001", "77771","88882"),
@@ -729,7 +551,6 @@ insert into comment_tag values
 ("10009", "88882","55551"),
 ("10002", "13333","12222"),
 ("10009", "88882","12222"),
-
 ("100", "111","222"),
 ("100", "111","333"),
 ("109", "999","555"),
@@ -740,7 +561,6 @@ insert into comment_tag values
 ("107", "888","999"),
 ("107", "888","101"),
 ("108", "444","111"),
-
 ("00", "11","22"),
 ("00", "11","33"),
 ("09", "99","55"),
