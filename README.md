@@ -2,6 +2,7 @@
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8eed3101-c2eb-48a0-b5d3-b217f1148208" alt="demo1gif" width="400" />
+  <p align="center">자세한 내용은 <a href="#-데모-영상">아래의 데모 영상</a>을 봐주세요</p>
 </p>
 
 
@@ -73,7 +74,3 @@ Database_System_TermProject/
 
 ## 📹 데모 영상
 프로젝트의 전체 기능을 보여주는 데모 영상은 [여기](https://youtu.be/7aHfA7vGxV8?si=VW5MMHHQ0q-9LNfR)에서 확인할 수 있습니다.
-
-
-
-
