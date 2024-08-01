@@ -1,4 +1,4 @@
-# Database System Term Project: Facebook Clone 
+# Database System Term Project: Facebook Clone DB
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8eed3101-c2eb-48a0-b5d3-b217f1148208" alt="demo1gif" width="400" />
