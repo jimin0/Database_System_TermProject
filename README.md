@@ -1,8 +1,7 @@
 # Database System Term Project: Facebook Clone 
 
-<p align="center">
-  데모 gif 위치
-</p>
+
+![demo1gif](https://github.com/user-attachments/assets/8eed3101-c2eb-48a0-b5d3-b217f1148208)
 
 ## 📌 프로젝트 개요
 
@@ -66,7 +65,7 @@ Database_System_TermProject/
 
 ## 📊 데이터베이스 스키마
 <p align="center">
-  스키마 위치
+  <img width="729" alt="er_diagram" src="https://github.com/user-attachments/assets/10dfc9ca-062d-4620-9398-0dc920fd9f18">
 </p>
 
 
